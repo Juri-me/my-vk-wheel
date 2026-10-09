@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #1c1e21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.wheel-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 30px;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99); /* Плавная остановка */
+    background: conic-gradient(
+        #ff9a9e 0deg 60deg,
+        #fad0c4 60deg 120deg,
+        #a18cd1 120deg 180deg,
+        #fbc2eb 180deg 240deg,
+        #84fab0 240deg 300deg,
+        #8fd3f4 300deg 360deg
+    );
+}
+
+.wheel span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Расставляем призы по кругу */
+.wheel span:nth-child(1) { transform: translate(-50%, -50%) rotate(30deg) translateY(-100px) rotate(-30deg); }
+.wheel span:nth-child(2) { transform: translate(-50%, -50%) rotate(90deg) translateY(-100px) rotate(-90deg); }
+.wheel span:nth-child(3) { transform: translate(-50%, -50%) rotate(150deg) translateY(-100px) rotate(-150deg); }
+.wheel span:nth-child(4) { transform: translate(-50%, -50%) rotate(210deg) translateY(-100px) rotate(-210deg); }
+.wheel span:nth-child(5) { transform: translate(-50%, -50%) rotate(270deg) translateY(-100px) rotate(-270deg); }
+.wheel span:nth-child(6) { transform: translate(-50%, -50%) rotate(330deg) translateY(-100px) rotate(-330deg); }
+
+.pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #333;
+    z-index: 10;
+}
+
+button {
+    background-color: #0077FF;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.result-text {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 24px;
+}
